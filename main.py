@@ -1,7 +1,7 @@
 import json,os,urllib.request as u
 E=os.environ["MAKEFUN_ENV_URL"]
 V=[0,100,320,330,500,900,0]
-S=['eeeeooooggikffgjeeeifdcefggaeeee','46886aee8egh8fhi8ehi8fgh6aef4688','acccceeecefgcffgceggcgggcfeeaccc','eeeefgggdeeedeeedeeedeeedeeeeeef','accdceeeceffdeffeeffcfffcefeaccd','8664866486648664a886caaaiieeikge']
+S=['eeeeooooggikffgjeeeifdcefggaeeee','46886aee8egh8fhi8ehi8fgh6aef4688','acccceeecefgcffgceggcgggcfeeaccc','8664866486648664a886caaaiieeikge']
 T=[[(int(c,36)-14)*5 for c in s] for s in S]
 N=(-33,-31,-18,-14,14,18,31,33)
 K=(-17,-16,-15,-1,1,15,16,17)
@@ -105,7 +105,7 @@ def ev(P):
   t=x&7;r=q>>4;g=q&7
   if g>3:g=7-g
   i=((7-r) if x<8 else r)*4+g
-  v=V[t]+T[t-1][i]
+  v=V[t]+(T[t-1][i] if t<4 else T[3][i] if t==6 else 0)
   s+=v if x<8 else -v
  return s+10 if w==0 else 10-s
 def sr(P,d,a,be,pl):
