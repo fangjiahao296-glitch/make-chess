@@ -94,7 +94,7 @@ def lm(st):
   a,b,q=mv;ns=am(st,mv);z=a-kk
   if ck or a>>4==kk>>4 or a&7==kk&7 or z%15==0 or z%17==0 or b==ep:
    if ak(ns[0],ns[4+wt],1-wt):continue
-  s=(V[bd[b]&7]*16-V[bd[a]&7] if bd[b] else 1500 if b==ep else 0)+(900 if q else 0)
+  s=(V[bd[b]&7]*16-V[bd[a]&7] if bd[b] else 1500 if b==ep else 0)+(V[q]*2 if q else 0)
   r.append((-s,mv,ns))
  r.sort();return [x[1:] for x in r],ck
 def sc(st):
@@ -105,7 +105,7 @@ def sc(st):
   i=(rk if x>7 else 7-rk)*4+fl
   v=V[t]+(T[min(t-1,3)][i] if t not in (4,5) else 0)
   s+=v if x<8 else -v
- return s+10 if wt==0 else 10-s
+ return s+12 if wt==0 else 12-s
 def ab(st,d,a,be,pl):
  global NC;NC+=1
  if NC>40000:raise X
